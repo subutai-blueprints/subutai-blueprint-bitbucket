@@ -29,6 +29,23 @@
             dest: /tmp/bitbucket.bin
             mode: 0774
 
+
+      - name: Copy varfile 
+        copy:
+            dest: "/tmp/varfile.cfg"
+            content: |
+                launch.application$Boolean=true
+                sys.adminRights$Boolean=true
+                app.install.service$Boolean=true
+                app.defaultInstallDir=/opt/atlassian/bitbucket/5.11.1
+                serverPort=8006
+                sys.languageId=en
+                httpPort=7990
+                app.bitbucketHome=/var/atlassian/application-data/bitbucket
+                installation.type$Integer=1
+                executeLauncherAction$Boolean=true
+
+
       - name: Run installer
         shell: |
-             /tmp/bitbucket.bin -q -varfile /root/files/response.varfile
+             /tmp/bitbucket.bin -q -varfile /tmp/varfile.cfg

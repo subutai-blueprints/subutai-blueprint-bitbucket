@@ -1,0 +1,37 @@
+- hosts: all
+  gather_facts: false
+  remote_user: root
+  tasks: 
+
+    - name: Update
+      raw: apt-get -y --allow-unauthenticated update || true
+
+    - name: Ensure python is available
+      raw: test -e /usr/bin/python || apt install -y --allow-unauthenticated python-minimal
+
+    - name: Ensure python-apt is available
+      raw: test -d /usr/share/python-apt || apt install -y --allow-unauthenticated python-apt
+
+    - name: Add gitlab deb source
+      raw: curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | bash
+
+    - name: Upgrade
+      raw: apt-get -y --allow-unauthenticated upgrade
+
+- hosts: bb
+  remote_user: root
+  tasks:
+      - name: Install git
+        apt:
+            name: git-core
+            update_cache: yes
+
+      - name: Get bitbucket installer
+        get_url:
+            url: https://downloads.atlassian.com/software/stash/downloads/atlassian-bitbucket-5.11.1-x64.bin
+            dest: /tmp/bitbucket.bin
+            mode: 774
+
+      - name: Run installer
+        shell: |
+             /tmp/bitbucket.bin -q -varfile files/response.varfile

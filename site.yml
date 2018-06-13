@@ -42,7 +42,6 @@
                 sys.languageId=en
                 httpPort=7990
                 app.bitbucketHome=/var/atlassian/application-data/bitbucket
-                installation.type$Integer=1
                 executeLauncherAction$Boolean=true
 
 

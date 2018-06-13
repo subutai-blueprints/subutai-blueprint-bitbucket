@@ -12,9 +12,6 @@
     - name: Ensure python-apt is available
       raw: test -d /usr/share/python-apt || apt install -y --allow-unauthenticated python-apt
 
-    - name: Add gitlab deb source
-      raw: curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | bash
-
     - name: Upgrade
       raw: apt-get -y --allow-unauthenticated upgrade
 

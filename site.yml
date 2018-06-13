@@ -31,4 +31,4 @@
 
       - name: Run installer
         shell: |
-             /tmp/bitbucket.bin -q -varfile files/response.varfile
+             /tmp/bitbucket.bin -q -varfile /root/files/response.varfile

@@ -27,7 +27,7 @@
         get_url:
             url: https://downloads.atlassian.com/software/stash/downloads/atlassian-bitbucket-5.11.1-x64.bin
             dest: /tmp/bitbucket.bin
-            mode: 774
+            mode: 0774
 
       - name: Run installer
         shell: |

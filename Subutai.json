@@ -48,7 +48,7 @@
         "environmentName": {
             "description": "Enter the environment name",
             "type": "string",
-            "default": "RstudioServer",
+            "default": "BitBucket",
             "validation": "[a-zA-Z0-9]+"
         },
         "webContainerName": {

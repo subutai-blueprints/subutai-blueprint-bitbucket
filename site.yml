@@ -25,7 +25,7 @@
 
       - name: Get bitbucket installer
         get_url:
-            url: https://downloads.atlassian.com/software/stash/downloads/atlassian-bitbucket-5.11.1-x64.bin
+            url: https://ipfs.subutai.io/ipfs/QmcpYaprFHkT5jdKKco3kqjA3ZxvcXnViAiT1ynWMhyz1X/atlassian-bitbucket-5.11.4-x64.bin
             dest: /tmp/bitbucket.bin
             mode: 0774
 
